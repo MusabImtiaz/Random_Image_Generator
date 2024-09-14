@@ -1,0 +1,122 @@
+:root {
+  --background-color-light: #f5f5f5;
+  --background-color-dark: #333;
+  --text-color-light: #333;
+  --text-color-dark: #f5f5f5;
+  --container-bg-light: #fff;
+  --container-bg-dark: #444;
+  --box-shadow-light: rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: rgba(0, 0, 0, 0.3);
+  --icon-color-light: #333;
+  --icon-color-dark: #f5f5f5;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  margin: 20px;
+  font-size: 2rem;
+  color: inherit;
+}
+
+.img-cont {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  max-width: 90vw;
+  border-radius: 10px;
+  background-color: var(--container-bg-light);
+  box-shadow: 0 4px 8px var(--box-shadow-light);
+  justify-content: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-cont img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.img-cont img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-switch label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: var(--container-bg-light);
+  transition: background-color 0.3s ease;
+  color: var(--icon-color-light); /* Default icon color for light mode */
+}
+
+.toggle-switch label i {
+  transition: color 0.3s ease;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label {
+  background-color: var(--background-color-dark);
+  color: var(--icon-color-dark); /* Icon color for dark mode */
+}
+
+.toggle-switch input[type="checkbox"]:checked + label .fa-sun {
+  display: none;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label .fa-moon {
+  display: block;
+}
+
+.toggle-switch input[type="checkbox"]:not(:checked) + label .fa-sun {
+  display: block;
+}
+
+.toggle-switch input[type="checkbox"]:not(:checked) + label .fa-moon {
+  display: none;
+}
+
+.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+.dark-mode .img-cont {
+  background-color: var(--container-bg-dark);
+  box-shadow: 0 4px 8px var(--box-shadow-dark);
+}
+
+.dark-mode .img-cont img:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
